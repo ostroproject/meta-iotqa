@@ -26,6 +26,7 @@ class RebootTest(oeRuntimeTest):
         for _ in range(60):
             if self._alive():
                 return True
+            time.sleep(1)
         return False
 
     def test_reboot(self):
