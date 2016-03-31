@@ -15,7 +15,7 @@ oeqa.runtime.sanity.iotivity.IOtvtClient.test_iotvt_findresource
 oeqa.runtime.sanity.iotivity.IOtvtClient.test_iotvt_getstate
 oeqa.runtime.sanity.iotivity.IOtvtClient.test_iotvt_observer
 oeqa.runtime.sanity.iotivity.IOtvtClient.test_iotvt_setstate
-oeqa.runtime.sanity.comm_wifi_connect_7260
+oeqa.runtime.sanity.comm_wifi_connect
 oeqa.runtime.smack
 oeqa.runtime.security.app_impersonation
 oeqa.runtime.security.appmemoryprotection
@@ -24,6 +24,6 @@ oeqa.runtime.security.dac_config
 oeqa.runtime.security.firewall_rules
 oeqa.runtime.ima  
 oeqa.runtime.security.openssl
-oeqa.runtime.wifi.comm_wifi_connect_7260
+oeqa.runtime.wifi.comm_wifi_connect
 oeqa.runtime.zigbee.comm_zigbee_basic
 oeqa.runtime.zigbee.comm_zigbee_mnode
