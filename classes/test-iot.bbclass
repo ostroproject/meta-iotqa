@@ -25,7 +25,7 @@
 
 inherit testimage
 #set dependency for test_ostro and test_iot_export
-TESTIMAGEDEPENDS = "ostro-image:do_build"
+TESTIMAGEDEPENDS = "${PN}:do_build"
 DEPLOY_DIR_TESTSUITE ?= "${DEPLOY_DIR}/testsuite"
 
 #get layer dir
