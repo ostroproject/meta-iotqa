@@ -8,6 +8,7 @@ import os
 import sys
 from oeqa.oetest import oeRuntimeTest
 import unittest
+from functools import wraps
 
 def shell_cmd(cmd):
     """Execute shell command till it return"""
@@ -101,5 +102,30 @@ def run_as(username, cmd, timeout=None, target=None, need_escape=True):
     cmd = escape(cmd) if need_escape else cmd
     cmd = "su %s -c \"%s\""%(username, cmd)
     return target.run(cmd, timeout) if timeout else target.run(cmd)
-    
 
+def have_bundle(bundle, target=None):
+    target = target if target is not None else oeRuntimeTest.tc.target
+    ret, bundles_output = target.run("ls /usr/share/clear/bundles")
+    if ret == 0:
+        all_bundles = set(bundles_output.split())
+        bundles = [bundle] if isinstance(bundle, str) else bundle
+        for bundle in bundles:
+            if bundle not in all_bundles and bundle+"-dev" not in all_bundles:
+                return False
+    return True
+
+def need_bundle(bundle):
+    """
+    bundle is a bundle name or a bundle list
+    If didn't use for multi-targets, don't need pass target to this function
+    """
+    def _need_bundle(func):
+        @wraps(func)
+        def Fake_func(*args, **kwargs):
+            if not have_bundle(bundle):
+                raise unittest.SkipTest("Need bundle: %s" % bundle)
+            return func(*args, **kwargs)
+        return Fake_func
+    return _need_bundle
+
+    
