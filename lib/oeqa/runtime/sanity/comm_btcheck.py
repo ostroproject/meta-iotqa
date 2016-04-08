@@ -10,6 +10,7 @@
 # @brief This is comm_btcheck module
 # @{
 ##
+import unittest
 
 import time
 from oeqa.oetest import oeRuntimeTest
@@ -39,6 +40,7 @@ class CommBluetoothTest(oeRuntimeTest):
         @param self
         @return
         '''
+        raise unittest.SkipTest("Just a test to see if CI can show skip log")
         # un-block software rfkill lock
         self.target.run('rfkill unblock all')
         # This is special for edison platform
