@@ -13,7 +13,7 @@
 
 import os
 import re
-from oeqa.oetest import oeRuntimeTest
+from oeqa.oetest import oeRuntimeTest, skipModule
 from oeqa.utils.decorators import tag
 
 @tag(FeatureID="IOTOS-356", TestType="FVT")
@@ -39,6 +39,9 @@ class SanityTestJava(oeRuntimeTest):
         @param self
         @return
         '''
+        if not oeRuntimeTest.hasFeature('java-jdk'):
+            skipModule("java module skipped"
+                       "target doesn't have java features")
         self.target.copy_to(
             os.path.join(
                 os.path.dirname(__file__),

@@ -13,7 +13,7 @@
 
 import subprocess
 import time
-from oeqa.oetest import oeRuntimeTest
+from oeqa.oetest import oeRuntimeTest, skipModule
 from oeqa.utils.decorators import tag
 
 @tag(TestType="FVT", FeatureID="IOTOS-489")
@@ -27,6 +27,7 @@ class CommSshTest(oeRuntimeTest):
         @param self
         @return
         '''
+        skipModule("In ssh, just a test to see skipModule result")
         # Run any command by target.run method. if pass, it proves ssh is good
         (status, output) = self.target.run('uname -a')
         ##

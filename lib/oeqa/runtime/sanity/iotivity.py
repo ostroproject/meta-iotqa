@@ -14,7 +14,7 @@
 import os
 import time
 import string
-from oeqa.oetest import oeRuntimeTest
+from oeqa.oetest import oeRuntimeTest, skipModule
 from oeqa.utils.helper import shell_cmd_timeout
 from oeqa.utils.helper import run_as, add_group, add_user, remove_user
 from oeqa.utils.decorators import tag
@@ -31,6 +31,7 @@ class IOtvtClient(oeRuntimeTest):
         @param cls
         @return
         '''
+        skipModule("In iotivity, just a test to see skipModule result")
         cls.tc.target.run("killall simpleserver")
         cls.tc.target.run("killall simpleclient")
         # add group and non-root user

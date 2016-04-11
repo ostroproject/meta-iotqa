@@ -13,7 +13,7 @@
 
 import os
 import re
-from oeqa.oetest import oeRuntimeTest
+from oeqa.oetest import oeRuntimeTest, skipModule
 from oeqa.utils.decorators import tag
 
 @tag(FeatureID="IOTOS-707", TestType="FVT")
@@ -39,6 +39,10 @@ class SanityTestPython(oeRuntimeTest):
         @param self
         @return
         '''
+        if not oeRuntimeTest.hasFeature('python-runtime-wrongname'):
+            skipModule("Python module skipped (by checking a wrong python module name"
+                       "target doesn't have python features")
+
         self.target.copy_to(
             os.path.join(
                 os.path.dirname(__file__),
