@@ -36,6 +36,7 @@ class TestCaseInterface(oeRuntimeTest):
         ori(self, FakeResult(), *args, **kwargs)
 
     def addSuccess(self, casename, classname=None, stdout="", stderr=""):
+        casename = casename.strip()
         classname = classname if classname else casename
         def testFake(self):
             sys.stdout.write(stdout)
@@ -44,6 +45,7 @@ class TestCaseInterface(oeRuntimeTest):
         obj.run(self.result)
 
     def addError(self, casename, classname=None, stdout="", stderr=""):
+        casename = casename.strip()
         classname = classname if classname else casename
         def testFake(self):
             sys.stdout.write(stdout)
@@ -53,6 +55,7 @@ class TestCaseInterface(oeRuntimeTest):
         obj.run(self.result)
 
     def addFailure(self, casename, classname=None, stdout="", stderr=""):
+        casename = casename.strip()
         classname = classname if classname else casename
         def testFake(self):
             sys.stdout.write(stdout)
@@ -62,6 +65,7 @@ class TestCaseInterface(oeRuntimeTest):
         obj.run(self.result)
 
     def addSkip(self, casename, classname=None, stdout="", stderr=""):
+        casename = casename.strip()
         classname = classname if classname else casename
         def testFake(self):
             sys.stdout.write(stdout)
