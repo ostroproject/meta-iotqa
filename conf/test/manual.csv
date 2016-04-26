@@ -139,3 +139,5 @@ TestStep,,,,2,"Check serial login disable in image","Ostro cannot be connected b
 TestStep,,,,3,"Check system log is disabled in Ostro: run command ""journalctl""","the system log tool cannot show any logs",,,,,,,
 TestStep,,,,4,"check swupd client is integrated in the image","swupd client in the image",,,,,,,
 TestStep,,,,5,"check product signing key in the image","the public key in the image",,,,,,,
+TestScript,npm_install_coap,Application Runtime / Node.js, Check the node module mqtt can be installed via npm,1,Set up the npm on the test device can connect network,The npm can connect network,FVT,design,IOTOS-1161,,,,
+TestStep,,,,2,"Run below command under path /tmp: $:npm install coap",The folder node_module/coap is exists under path /tmp,,,,,,,
