@@ -34,4 +34,4 @@ TestStep,,,,2,Check the output,"Log outputs smoothly, including detail test resu
 TestScript,dbench_benchmark,Benchmark,Check the menchmark integartion and work well or not,1,"In terminal, run command 'dbench'",,FVT,ready,IOTOS-1563,,,,
 TestStep,,,,2,Check the output,"Usage of lmbench output in log, no error, break and crash message.",,,,,,,
 TestStep,,,,3,dbench -t 10 -D /mnt -c client.txt 100,,,,,,,,
-TestStep,,,,4,Check the output,"Logs output smoothly, including detail test result. No error, break and crash message.",,,,,,,
+TestStep,,,,4,Check the output,"Logs output smoothly, detail test result included. No error, break and crash message.",,,,,,,
