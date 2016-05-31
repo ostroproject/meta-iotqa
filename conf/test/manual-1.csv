@@ -120,3 +120,6 @@ TestStep,,,,4,"Stop above steps, Modify realsense_r200_nodelet_standalone_manual
 Re-launch the realsense nodelet using the launch file: 
 roslaunch realsense_camera realsense_r200_nodelet_standalone_manual.launch","RealSense nodelet should exit with following error message:
 uvc subdevice 2 cannot provide 1280x720:RGB8@60Hz COLOR",,,,,,,
+TestScript,test_tpm,TPM,Check if TPM is enabled in kernel,1,run command 'bitbake -c menuconfig linux-yocto' and save the config,No error happens,FVT,ready,IOTOS-1551,,,,
+TestStep,,,,2,Check in the .config file for CONFIG_TCG_TPM,configure is set to yes (y),,,,,,,
+TestStep,,,,3,Check in the .config file for CONFIG_TCG_TIS,configure is set to yes (y),,,,,,,
